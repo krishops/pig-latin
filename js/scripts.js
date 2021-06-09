@@ -16,8 +16,12 @@ function pigLatin(word) {
     return word + "way";
   }
   else{  
-    let marker=0;
+    if ( (word[0] === 'q' || word[0] === 'Q' ) && (word[1] === 'u' || word[1] === 'U') )
+    {
+      return word.slice(2) + word.slice(0,2) + "ay";
+    }
 
+    let marker=0;
     for(let index=0; index<word.length; index++)
     {
       if (checkVowel(word[index]))
@@ -26,16 +30,12 @@ function pigLatin(word) {
         break;
       }
     }
-
-    if ( (word[0] === 'q' || word[0] === 'Q' ) && (word[1] === 'u' || word[1] === 'U') )
-    {
-      return word.slice(2) + word.slice(0,2) + "ay";
-    }
-
     return word.slice(marker)  + word.slice(0,marker) + "ay";
   }
   
-//quti   tiquay
+  // Test: "For words that begin with 'q' not followed by a u, it will follow the same rule as other consonants."
+  // Code: pigLatin("qi");
+  // Expected Output: "iqay"
 
 
 
