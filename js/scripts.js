@@ -1,15 +1,33 @@
 // Utility Logic
-
+function checkVowel (text) {
+  if(text === 'a' || text === 'A' || text === 'e' || text === 'E' || text === 'i' || text === 'I' || text === 'o' || text === 'O' || text === 'u' || text === 'U')
+  {
+    return true;
+  }
+  else 
+  {
+    return false;
+  }
+}
 // Business Logic
 function pigLatin(word) {
 
-  if(word[0] === 'a' || word[0] === 'A' || word[0] === 'e' || word[0] === 'E' || word[0] === 'i' || word[0] === 'I' || word[0] === 'o' || word[0] === 'O' || word[0] === 'u' || word[0] === 'U'){
-
+  if( checkVowel(word[0]) ){
     return word + "way";
   }
-  else{
-    return word.slice(1)  + word.slice(0,1) + "ay";
+  else{  
+    let marker=0;
 
+    for(let index=0; index<word.length; index++)
+    {
+      if (checkVowel(word[index]))
+      {
+        marker = index;
+        break;
+      }
+    }
+
+    return word.slice(marker)  + word.slice(0,marker) + "ay";
   }
   
 
