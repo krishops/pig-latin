@@ -27,14 +27,17 @@ function pigLatin(word) {
       }
     }
 
+    if ( (word[0] === 'q' || word[0] === 'Q' ) && (word[1] === 'u' || word[1] === 'U') )
+    {
+      return word.slice(2) + word.slice(0,2) + "ay";
+    }
+
     return word.slice(marker)  + word.slice(0,marker) + "ay";
   }
   
+//quti   tiquay
 
 
-  // Test: "For words that begin with more than one consonant, it will move all consonants before the first vowel to the end of the word and add 'ay'."
-  // Code: pigLatin("stop");
-  // Expected Output: "opstay"
 
 }
 
